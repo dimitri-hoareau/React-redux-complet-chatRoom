@@ -3,8 +3,7 @@ import "./style.scss";
 
 const MessageList = () => {
   return (
-    <div>
-      <h3>Message List</h3>
+    <div className="message-list">
       <Message />
       <Message />
       <Message />
@@ -14,7 +13,12 @@ const MessageList = () => {
 };
 
 const Message = () => {
-  return <div>Message</div>;
+  return (
+    <div className="message">
+      <div className="message_author">Test Auteur</div>
+      <div className="message_content">Hey salut ça va ?</div>
+    </div>
+  );
 };
 
 export default MessageList;

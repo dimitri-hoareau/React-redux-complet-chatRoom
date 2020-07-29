@@ -1,0 +1,17 @@
+@use '../../styles/vars';
+
+.message-form {
+  display: flex;
+  background-color: #fff;
+  &_input {
+    border: none;
+    padding: 15px;
+    width: 100%;
+  }
+  &_submit {
+    width: 37px;
+    height: 37px;
+    margin: 5px 5px 0 0;
+    color: vars.$darkColor;
+  }
+}

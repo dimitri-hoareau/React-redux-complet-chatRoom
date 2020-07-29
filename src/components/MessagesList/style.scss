@@ -1,0 +1,22 @@
+@use '../../styles/vars';
+
+.message-list {
+  flex: 1;
+  background-color: vars.$lightColor;
+}
+
+.message {
+  margin: 15px 0 0 15px;
+  &_author {
+    font-size: 0.7em;
+  }
+  &_content {
+    display: inline-block;
+    background-color: #fff;
+    padding: 25px;
+    font-size: 0.8em;
+    border-radius: 25px;
+    color: vars.$darkColor;
+    margin: 10px 0;
+  }
+}
