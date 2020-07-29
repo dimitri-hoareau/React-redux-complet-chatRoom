@@ -1,5 +1,5 @@
 // Importer le type d'action auquel tu veux réagir
-import { INCREMENT } from "../action";
+import { INCREMENT, MESSAGE_INPUT_CHANGE } from "../action";
 const initialState = {
   count: 0,
   messages: [
@@ -11,6 +11,11 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
+    case MESSAGE_INPUT_CHANGE:
+      return {
+        ...state,
+        messageInput: action.payload,
+      };
     case INCREMENT:
       return {
         ...state,

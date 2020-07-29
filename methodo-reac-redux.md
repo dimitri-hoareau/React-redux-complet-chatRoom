@@ -25,19 +25,22 @@ Dans mapStateToProps, je remplace mes fausses data par celles venant vraiement d
 
 J'ai à chaque fois besoin de travailler dans 3 fichiers:
 
-- action
-- reducer
-- container
+- action (je décris les actions que mon app va générer)
+- reducer (je traite les actions pour modifier le state en fonction)
+- container ("j'execute" l'action -> je la dispatche)
 
 **Dans action**
 
 Je crée un nouveau type d'action.
 
-Je crée une fonction (action creator) qui me retourne un objet d'action. Se poser la question:
+Je crée une fonction (action creator) qui me retourne un objet d'action.
+Mettre dans l'objet d'action le type corresondant.
+
+Se poser la question:
 
 - Ai-je besoin de transmettre de la donnée avec mon action ? (par exemple un onChange sur un input doit transmettre ce qui a été tapé).
 
-Si oui, je fais en sorte que mon action creator reçoive en paramètre ce dont il a besoin, et le place dans l'objet d'action.
+Si oui, je fais en sorte que mon action creator reçoive en paramètre ce dont il a besoin, et le place dans l'objet d'action. Le plus souvent, on appelle la data que l'on veut faire parvenir jusqu'au reducer: payload
 
 **Dans reducer**
 
@@ -49,6 +52,6 @@ Dans la fonction reducer, dans le cas où l'action reçue est celle qui m'intér
 
 J'importe mon action creator.
 
-Dans le mapDiuspatchToProps, je l'utilise pour dispatcher l'action qui m'intéresse ( = la faire arriver jusqu'à mon reducer)
+Dans le mapDispatchToProps, je l'utilise pour dispatcher l'action qui m'intéresse ( = la faire arriver jusqu'à mon reducer)
 
 ![](react-redux.jpg)

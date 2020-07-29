@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import MessageForm from "../components/MessageForm";
-
+import { messageInputChange } from "../store/action";
 // - [x] mon composant consulte-t-il le state ?
 // - [x] mon composant dispatch -t-il des actions ?
 
@@ -11,16 +11,7 @@ const mapState = (state) => ({
 const mapDispatch = (dispatch) => ({
   onInputChange: (ceQuiAeteSaisi) => {
     console.log("user a tapé dans input: ", ceQuiAeteSaisi);
-    // Je veux modifier mon state avec ce qui a été saisi
-    // Je veux un type d'action et un action creator
-
-    // dispatcher l'action grâce à l'action creator
-
-    // Dans le reducer
-    // Aller voir les commentaires
-
-    // Dans  actions
-    // aller voir les commentaires
+    dispatch(messageInputChange(ceQuiAeteSaisi));
   },
   onMessageSend: () => {
     console.log("user a envoyé le message");
