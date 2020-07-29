@@ -9,8 +9,16 @@ import MessageForm from "../MessageForm";
 // == Composant
 const App = () => (
   <div className="app">
-    <MessageList />
-    <MessageForm />
+    <MessageList list={[{ id: 1, author: "Dorian", content: "wazzzzaaaaa" }]} />
+    <MessageForm
+      onMessageSend={() => {
+        console.log("Ok je dois envoyer le message");
+      }}
+      onInputChange={() => {
+        console.log("L'user a tapé dans l'input");
+      }}
+      message="Je suis en cours de rédacti"
+    />
   </div>
 );
 
