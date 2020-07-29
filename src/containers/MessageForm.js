@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import MessageForm from "../components/MessageForm";
-import { messageInputChange } from "../store/action";
+import { messageInputChange, messageSend } from "../store/action";
 // - [x] mon composant consulte-t-il le state ?
 // - [x] mon composant dispatch -t-il des actions ?
 
@@ -15,6 +15,7 @@ const mapDispatch = (dispatch) => ({
   },
   onMessageSend: () => {
     console.log("user a envoyé le message");
+    dispatch(messageSend());
   },
 });
 

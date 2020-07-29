@@ -1,5 +1,6 @@
 // Importer le type d'action auquel tu veux réagir
-import { INCREMENT, MESSAGE_INPUT_CHANGE } from "../action";
+import { v4 as uuidv4 } from "uuid";
+import { INCREMENT, MESSAGE_INPUT_CHANGE, MESSAGE_SEND } from "../action";
 const initialState = {
   count: 0,
   messages: [
@@ -11,6 +12,19 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
+    case MESSAGE_SEND:
+      return {
+        ...state,
+        messages: [
+          ...state.messages,
+          {
+            id: uuidv4(),
+            author: "anonyme",
+            content: state.messageInput,
+          },
+        ],
+        messageInput: "",
+      };
     case MESSAGE_INPUT_CHANGE:
       return {
         ...state,
