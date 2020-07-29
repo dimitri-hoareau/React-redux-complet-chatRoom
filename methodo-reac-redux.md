@@ -47,6 +47,8 @@ Dans la fonction reducer, dans le cas où l'action reçue est celle qui m'intér
 
 **Dans container**
 
-J'importe mon action creator. Et je l'utilise pour dispatcher l'action qui m'intéresse ( = la faire arriver jusqu'à mon reducer)
+J'importe mon action creator.
+
+Dans le mapDiuspatchToProps, je l'utilise pour dispatcher l'action qui m'intéresse ( = la faire arriver jusqu'à mon reducer)
 
 ![](react-redux.jpg)
