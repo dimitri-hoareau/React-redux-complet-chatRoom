@@ -3,10 +3,21 @@
 export const INCREMENT = "INCREMENT";
 export const MESSAGE_INPUT_CHANGE = "MESSAGE_INPUT_CHANGE";
 export const MESSAGE_SEND = "MESSAGE_SEND";
+export const TOGGLE_LOGIN_FORM = "TOGGLE_LOGIN_FORM";
+export const LOGIN_INPUT_CHANGE = "LOGIN_INPUT_CHANGE";
 // Créer un action creator qui renvoie un objet
 // avec le bon type. Il va aussi falloir récupèrer
 // dans les paramètres ce qui a été saisi par l'user
 // et le mettre dans action.value
+
+export const loginInputChange = (payload) => ({
+  type: LOGIN_INPUT_CHANGE,
+  payload,
+});
+
+export const toggleLoginForm = () => ({
+  type: TOGGLE_LOGIN_FORM,
+});
 
 export const messageSend = () => ({
   type: MESSAGE_SEND,

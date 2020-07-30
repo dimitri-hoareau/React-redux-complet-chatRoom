@@ -1,8 +1,12 @@
 // Importer le type d'action auquel tu veux réagir
 import { v4 as uuidv4 } from "uuid";
-import { INCREMENT, MESSAGE_INPUT_CHANGE, MESSAGE_SEND } from "../action";
+import {
+  MESSAGE_INPUT_CHANGE,
+  MESSAGE_SEND,
+  TOGGLE_LOGIN_FORM,
+  LOGIN_INPUT_CHANGE,
+} from "../action";
 const initialState = {
-  count: 0,
   messages: [],
   messageInput: "",
   loginOpened: false,
@@ -14,6 +18,19 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
+    case LOGIN_INPUT_CHANGE:
+      return {
+        ...state,
+        loginData: {
+          ...state.loginData,
+          ...action.payload,
+        },
+      };
+    case TOGGLE_LOGIN_FORM:
+      return {
+        ...state,
+        loginOpened: !state.loginOpened,
+      };
     case MESSAGE_SEND:
       return {
         ...state,
@@ -32,17 +49,7 @@ export default (state = initialState, action = {}) => {
         ...state,
         messageInput: action.payload,
       };
-    case INCREMENT:
-      return {
-        ...state,
-        count: state.count + 1,
-      };
-    // case INPUT_MESSAGE_CHANGE
-    // Renvoyer le state tel qu'il était
-    // MAIS en changeant la propriété
-    // messageInput, et lui donner en valeur
-    // ce qui a été tapé par l'user
-    // (action.value par exemple)
+
     default:
       return state;
   }
