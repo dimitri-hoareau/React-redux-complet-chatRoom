@@ -8,12 +8,15 @@ import {
   TOGGLE_LOGIN_FORM,
   LOGIN_INPUT_CHANGE,
   LOGIN_SUBMIT,
+  LOGIN_SUBMIT_SUCCESS,
+  LOGIN_SUBMIT_ERROR,
 } from "../action";
 
 // Je décris mon state initial
 const initialState = {
   loading: false,
   username: "",
+  loginErrorMessage: "",
   messages: [],
   messageInput: "",
   loginOpened: false,
@@ -26,6 +29,19 @@ const initialState = {
 // Je décris mon state à tout instant
 export default (state = initialState, action = {}) => {
   switch (action.type) {
+    case LOGIN_SUBMIT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        username: action.payload,
+      };
+    case LOGIN_SUBMIT_ERROR:
+      return {
+        ...state,
+        loading: false,
+        username: "",
+        loginErrorMessage: action.payload,
+      };
     case LOGIN_SUBMIT:
       return {
         ...state,

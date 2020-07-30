@@ -1,5 +1,5 @@
 import axios from "axios";
-import { LOGIN_SUBMIT } from "../action";
+import { LOGIN_SUBMIT, loginSubmitSuccess, loginSubmitError } from "../action";
 
 // un middleware est une triple fonction fléchée
 // vous recevreze toujours (dans cet ordre)
@@ -23,11 +23,15 @@ const ajaxMiddleware = (store) => (next) => (action) => {
           // (le username)
           // dispatcher un nouveau type d'action (LOGIN_SUBMIT_SUCCESS)
           // et y accrocher le username
+          store.dispatch(loginSubmitSuccess(res.data));
         })
         .catch((err) => {
           // Il y a eu une erreur
           // dispatcher un nouveau type d'action (LOGIN_SUBMIT_ERROR)
           // et y accrocher le message d'erreur par exemple
+          store.dispatch(
+            loginSubmitError("Désolé cet utilisateur n'existe pas")
+          );
         });
     default:
       return;
