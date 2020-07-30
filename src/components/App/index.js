@@ -10,7 +10,19 @@ import Login from "../Login";
 // == Composant
 const App = () => (
   <div className="app">
-    <Login />
+    <Login
+      opened={true}
+      onOpenClick={() => {
+        console.log("open or close login form");
+      }}
+      loginData={{
+        email: "test@machin.com",
+        password: "123456",
+      }}
+      onInputChange={(changedData) => {
+        console.log(changedData);
+      }}
+    />
     <MessageList />
     <MessageForm />
   </div>
