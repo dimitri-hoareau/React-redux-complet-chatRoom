@@ -22,6 +22,9 @@ const App = () => (
       onInputChange={(changedData) => {
         console.log(changedData);
       }}
+      onFormLogin={() => {
+        console.log("Il ya eu submit !");
+      }}
     />
     <MessageList />
     <MessageForm />

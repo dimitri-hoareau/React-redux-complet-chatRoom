@@ -1,7 +1,13 @@
 import React from "react";
 import "./style.scss";
 
-const Login = ({ opened, onOpenClick, loginData, onInputChange }) => {
+const Login = ({
+  opened,
+  onOpenClick,
+  loginData,
+  onInputChange,
+  onFormLogin,
+}) => {
   const handleInputChange = (evt) => {
     // Je souhaite avoir une propriété qui s'appelle soit email
     // soit password. Cette info est présente dans e.target.name.
@@ -10,11 +16,17 @@ const Login = ({ opened, onOpenClick, loginData, onInputChange }) => {
     // J'ai donc besoin d'interpreter ce que vaut name.
     // Si je ne l'interprete pas,
     // je crée une propriété "name" au lieu de email / password
-    const name = evt.target.name;
+    // const name = evt.target.name;
+    const { name, value } = evt.target;
 
     onInputChange({
-      [name]: evt.target.value,
+      [name]: value,
     });
+  };
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    onFormLogin();
   };
 
   return (
@@ -23,7 +35,7 @@ const Login = ({ opened, onOpenClick, loginData, onInputChange }) => {
         +
       </div>
       {opened && (
-        <form className="settings-form">
+        <form className="settings-form" onSubmit={handleSubmit}>
           <input
             name="email"
             type="email"
