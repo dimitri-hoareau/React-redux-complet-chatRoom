@@ -1,9 +1,14 @@
 import { connect } from "react-redux";
 import Login from "../components/Login";
-import { toggleLoginForm, loginInputChange } from "../store/action";
+import {
+  toggleLoginForm,
+  loginInputChange,
+  loginSubmit,
+} from "../store/action";
 const mapStateToProps = (state) => ({
   opened: state.loginOpened,
   loginData: state.loginData,
+  loading: state.loading,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -17,6 +22,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
   onFormLogin: () => {
     console.log("Il ya eu submit !");
+    dispatch(loginSubmit());
   },
 });
 

@@ -7,6 +7,7 @@ const Login = ({
   loginData,
   onInputChange,
   onFormLogin,
+  loading,
 }) => {
   const handleInputChange = (evt) => {
     // Je souhaite avoir une propriété qui s'appelle soit email
@@ -34,7 +35,8 @@ const Login = ({
       <div className="settings-button" onClick={onOpenClick}>
         +
       </div>
-      {opened && (
+      {opened && loading && <div className="loading">Connexion...</div>}
+      {opened && !loading && (
         <form className="settings-form" onSubmit={handleSubmit}>
           <input
             name="email"
