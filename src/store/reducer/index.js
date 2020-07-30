@@ -3,11 +3,8 @@ import { v4 as uuidv4 } from "uuid";
 import { INCREMENT, MESSAGE_INPUT_CHANGE, MESSAGE_SEND } from "../action";
 const initialState = {
   count: 0,
-  messages: [
-    { id: 1, author: "Dorian", content: "wazzzzaaaaa" },
-    { id: 2, author: "Axel", content: "50 balles" },
-  ],
-  messageInput: "message en cours de redacti",
+  messages: [],
+  messageInput: "",
 };
 
 export default (state = initialState, action = {}) => {
