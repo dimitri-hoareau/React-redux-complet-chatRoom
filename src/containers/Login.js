@@ -9,6 +9,7 @@ const mapStateToProps = (state) => ({
   opened: state.loginOpened,
   loginData: state.loginData,
   loading: state.loading,
+  username: state.username,
 });
 
 const mapDispatchToProps = (dispatch) => ({

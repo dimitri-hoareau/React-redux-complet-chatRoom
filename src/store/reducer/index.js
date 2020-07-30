@@ -1,6 +1,6 @@
 // Importer le type d'action auquel tu veux réagir
 import { v4 as uuidv4 } from "uuid";
-
+import axios from "axios";
 // J'importe les types d'action qui m'intéressent
 import {
   MESSAGE_INPUT_CHANGE,
@@ -13,12 +13,13 @@ import {
 // Je décris mon state initial
 const initialState = {
   loading: false,
+  username: "",
   messages: [],
   messageInput: "",
   loginOpened: false,
   loginData: {
-    email: "test@machin.com",
-    password: "123456",
+    email: "bouclierman@herocorp.io",
+    password: "jennifer",
   },
 };
 
@@ -30,6 +31,7 @@ export default (state = initialState, action = {}) => {
         ...state,
         loading: true,
       };
+
     case LOGIN_INPUT_CHANGE:
       return {
         ...state,
