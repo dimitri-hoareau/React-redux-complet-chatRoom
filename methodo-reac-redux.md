@@ -19,7 +19,7 @@
 
 ### Donner les vraies données du state
 
-Dans mapStateToProps, je remplace mes fausses data par celles venant vraiement du state
+Dans mapStateToProps, je remplace mes fausses data par celles venant vraiment du state
 
 ### Dispatcher de vrais actions
 

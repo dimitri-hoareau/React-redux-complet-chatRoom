@@ -5,27 +5,12 @@ import React from "react";
 import "./styles.css";
 import MessageList from "../../containers/MessageList";
 import MessageForm from "../../containers/MessageForm";
-import Login from "../Login";
+import Login from "../../containers/Login";
 
 // == Composant
 const App = () => (
   <div className="app">
-    <Login
-      opened={true}
-      onOpenClick={() => {
-        console.log("open or close login form");
-      }}
-      loginData={{
-        email: "test@machin.com",
-        password: "123456",
-      }}
-      onInputChange={(changedData) => {
-        console.log(changedData);
-      }}
-      onFormLogin={() => {
-        console.log("Il ya eu submit !");
-      }}
-    />
+    <Login />
     <MessageList />
     <MessageForm />
   </div>

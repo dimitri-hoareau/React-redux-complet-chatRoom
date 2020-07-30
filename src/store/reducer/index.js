@@ -5,6 +5,11 @@ const initialState = {
   count: 0,
   messages: [],
   messageInput: "",
+  loginOpened: false,
+  loginData: {
+    email: "test@machin.com",
+    password: "123456",
+  },
 };
 
 export default (state = initialState, action = {}) => {
