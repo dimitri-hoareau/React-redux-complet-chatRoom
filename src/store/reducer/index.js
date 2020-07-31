@@ -1,5 +1,5 @@
 // Importer le type d'action auquel tu veux réagir
-import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from 'uuid';
 // J'importe les types d'action qui m'intéressent
 import {
   MESSAGE_INPUT_CHANGE,
@@ -9,25 +9,31 @@ import {
   LOGIN_SUBMIT,
   LOGIN_SUBMIT_SUCCESS,
   LOGIN_SUBMIT_ERROR,
-} from "../action";
+  MESSAGE_RECEIVED,
+} from '../action';
 
 // Je décris mon state initial
 const initialState = {
   loading: false,
-  username: "",
-  loginErrorMessage: "",
+  username: '',
+  loginErrorMessage: '',
   messages: [],
-  messageInput: "",
+  messageInput: '',
   loginOpened: false,
   loginData: {
-    email: "bouclierman@herocorp.io",
-    password: "jennifer",
+    email: 'bouclierman@herocorp.io',
+    password: 'jennifer',
   },
 };
 
 // Je décris mon state à tout instant
 export default (state = initialState, action = {}) => {
   switch (action.type) {
+    case MESSAGE_RECEIVED:
+      return {
+        ...state,
+        messages: [...state.messages, action.payload],
+      };
     case LOGIN_SUBMIT_SUCCESS:
       return {
         ...state,
@@ -38,7 +44,7 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         loading: false,
-        username: "",
+        username: '',
         loginErrorMessage: action.payload,
       };
     case LOGIN_SUBMIT:
@@ -59,19 +65,6 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         loginOpened: !state.loginOpened,
-      };
-    case MESSAGE_SEND:
-      return {
-        ...state,
-        messages: [
-          ...state.messages,
-          {
-            id: uuidv4(),
-            author: "anonyme",
-            content: state.messageInput,
-          },
-        ],
-        messageInput: "",
       };
     case MESSAGE_INPUT_CHANGE:
       return {

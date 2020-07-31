@@ -1,17 +1,23 @@
 // Créer un type d'action (INPUT_MESSAGE_CHANGE)
 
-export const INCREMENT = "INCREMENT";
-export const MESSAGE_INPUT_CHANGE = "MESSAGE_INPUT_CHANGE";
-export const MESSAGE_SEND = "MESSAGE_SEND";
-export const TOGGLE_LOGIN_FORM = "TOGGLE_LOGIN_FORM";
-export const LOGIN_INPUT_CHANGE = "LOGIN_INPUT_CHANGE";
-export const LOGIN_SUBMIT = "LOGIN_SUBMIT";
-export const LOGIN_SUBMIT_SUCCESS = "LOGIN_SUBMIT_SUCCESS";
-export const LOGIN_SUBMIT_ERROR = "LOGIN_SUBMIT_ERROR";
+export const INCREMENT = 'INCREMENT';
+export const MESSAGE_INPUT_CHANGE = 'MESSAGE_INPUT_CHANGE';
+export const MESSAGE_SEND = 'MESSAGE_SEND';
+export const TOGGLE_LOGIN_FORM = 'TOGGLE_LOGIN_FORM';
+export const LOGIN_INPUT_CHANGE = 'LOGIN_INPUT_CHANGE';
+export const LOGIN_SUBMIT = 'LOGIN_SUBMIT';
+export const LOGIN_SUBMIT_SUCCESS = 'LOGIN_SUBMIT_SUCCESS';
+export const LOGIN_SUBMIT_ERROR = 'LOGIN_SUBMIT_ERROR';
+export const MESSAGE_RECEIVED = 'MESSAGE_RECEIVED';
 // Créer un action creator qui renvoie un objet
 // avec le bon type. Il va aussi falloir récupèrer
 // dans les paramètres ce qui a été saisi par l'user
 // et le mettre dans action.value
+
+export const messageReceived = (payload) => ({
+  type: MESSAGE_RECEIVED,
+  payload,
+});
 
 export const loginSubmitSuccess = (payload) => ({
   type: LOGIN_SUBMIT_SUCCESS,
