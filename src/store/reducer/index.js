@@ -1,6 +1,5 @@
 // Importer le type d'action auquel tu veux réagir
 import { v4 as uuidv4 } from "uuid";
-import axios from "axios";
 // J'importe les types d'action qui m'intéressent
 import {
   MESSAGE_INPUT_CHANGE,

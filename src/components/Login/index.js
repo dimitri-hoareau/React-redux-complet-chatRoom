@@ -2,14 +2,16 @@ import React from "react";
 import "./style.scss";
 
 const Login = ({
+  // data qui vient du state
   opened,
-  onOpenClick,
   loginData,
-  onInputChange,
-  onFormLogin,
   loading,
   username,
   error,
+  // function qui dispatch
+  onOpenClick,
+  onInputChange,
+  onFormLogin,
 }) => {
   const handleInputChange = (evt) => {
     // Je souhaite avoir une propriété qui s'appelle soit email
@@ -23,6 +25,8 @@ const Login = ({
     const { name, value } = evt.target;
 
     onInputChange({
+      // email: value
+      // password: value
       [name]: value,
     });
   };
@@ -38,9 +42,9 @@ const Login = ({
         +
       </div>
       <p>Error: {error}</p>
-      <p>username: {username}</p>
       {opened && loading && <div className="loading">Connexion...</div>}
-      {opened && !loading && (
+      {opened && username && <div className="loading">{username}</div>}
+      {opened && !loading && !username && (
         <form className="settings-form" onSubmit={handleSubmit}>
           <input
             name="email"
