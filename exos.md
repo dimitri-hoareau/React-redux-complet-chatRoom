@@ -16,3 +16,5 @@ Tout est dans le titre...
 ### Si l'user n'est pas connecté
 
 Rendre l'input d'envoi de message désactivé (et le bouton aussi)
+
+### Empecher l'envoi de messages vides :grin:
