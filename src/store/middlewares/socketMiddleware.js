@@ -6,8 +6,6 @@ import { LOGIN_SUBMIT_SUCCESS, MESSAGE_SEND, messageReceived } from '../action';
 let socket;
 
 const socketMiddleware = (store) => (next) => (action) => {
-  // Je laisse passer l'action dans tous les cas
-  next(action);
   // Puis j'examine le type pour réagir en fonction
   switch (action.type) {
     case LOGIN_SUBMIT_SUCCESS: {
@@ -32,14 +30,21 @@ const socketMiddleware = (store) => (next) => (action) => {
       break;
     }
 
-    case MESSAGE_SEND:
+    case MESSAGE_SEND: {
+      const { messageInput, username } = store.getState();
+      if (messageInput.length === 0) {
+        return;
+      }
       socket.emit('send_message', {
-        content: store.getState().messageInput,
-        author: store.getState().username,
+        content: messageInput,
+        author: username,
       });
       break;
+    }
     default:
   }
+  // Je laisse passer l'action dans tous les cas
+  next(action);
 };
 
 export default socketMiddleware;

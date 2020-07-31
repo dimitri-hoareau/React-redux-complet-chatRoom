@@ -1,12 +1,16 @@
 @use '../../styles/vars';
 
 .message-list {
-  flex: 1;
+  // flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
   background-color: vars.$lightColor;
 }
 
 .message {
-  margin: 15px 0 0 15px;
+  margin: 15px 15px 0 15px;
   &_author {
     font-size: 0.7em;
   }
@@ -19,4 +23,8 @@
     color: vars.$darkColor;
     margin: 10px 0;
   }
+}
+
+.right {
+  margin: 15px 15px 0 auto;
 }

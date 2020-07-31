@@ -34,11 +34,17 @@ export default (state = initialState, action = {}) => {
         ...state,
         messages: [...state.messages, action.payload],
       };
+    case MESSAGE_SEND:
+      return {
+        ...state,
+        messageInput: '',
+      };
     case LOGIN_SUBMIT_SUCCESS:
       return {
         ...state,
         loading: false,
         username: action.payload,
+        loginErrorMessage: '',
       };
     case LOGIN_SUBMIT_ERROR:
       return {

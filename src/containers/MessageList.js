@@ -1,5 +1,5 @@
-import { connect } from "react-redux";
-import MessageList from "../components/MessagesList";
+import { connect } from 'react-redux';
+import MessageList from '../components/MessagesList';
 
 /*
   - [x] besoin de lire le state
@@ -8,6 +8,7 @@ import MessageList from "../components/MessagesList";
 
 const mapState = (state) => ({
   list: state.messages,
+  user: state.username,
 });
 
 const mapDispatch = null;

@@ -1,5 +1,5 @@
-import React from "react";
-import "./style.scss";
+import React from 'react';
+import './style.scss';
 
 const Login = ({
   // data qui vient du state
@@ -41,7 +41,6 @@ const Login = ({
       <div className="settings-button" onClick={onOpenClick}>
         +
       </div>
-      <p>Error: {error}</p>
       {opened && loading && <div className="loading">Connexion...</div>}
       {opened && username && <div className="loading">{username}</div>}
       {opened && !loading && !username && (
